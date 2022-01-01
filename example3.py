@@ -1,3 +1,4 @@
+#Web scraper for https://www.python.org/ - Upcoming Events List
 import requests
 from bs4 import BeautifulSoup
 
