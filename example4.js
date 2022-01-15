@@ -6,6 +6,7 @@ function inCorrectClosed(string){
 	}
 	let oposite_found = 0; // Количество закрывающихся символов
 	let front_found = 0; // Количество окрывающихся символов
+	let total_oposits = 0;
 	for(var i = 0;i<string.length;i++){
 		oposite = oposites[string[i]]; //Перебираем  символы по итерации и ищем противоположный символ в словаре
 		if(oposite){ //Если текущий символ есть в словаре
@@ -17,11 +18,15 @@ function inCorrectClosed(string){
 					break //Останавливаем цикл
 				}
 			}
+		}else{
+			total_oposits++
 		}
 	}
+	console.log(total_oposits,oposite_found);
 	//Возвращаем false если кол.во открывающих символов и кол.во закрывающихся символов не одинаковы или если длина строки не четная
 	//Если длины откр. и закр. символов равны и длина строки четна то возвращаем true
-	return front_found-oposite_found ||  (string.length & 1) ? false : true;
+	// [Новый кункт] сверяем найденное количество совпавший прот. символов и общее кол.во закрыв. символов
+	return front_found-oposite_found ||  (string.length & 1) || total_oposits - oposite_found ? false : true;
 }
-let string  = "()(){}()({{[}})[]";
+let string  = "([][])";
 console.log(inCorrectClosed(string))
