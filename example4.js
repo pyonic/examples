@@ -19,7 +19,7 @@ function inCorrectClosed(string){
 			}
 		}
 	}
-	//Если количесвто открытых и количество закрытых совпадают и если длина строки четная то возвражем true иначе false
+	//Если количесвто открытых и количество закрытых совпадают и если длина строки четная то возвращем true иначе false
 	return front_found-oposite_found ||  (string.length & 1) ? false : true;
 }
 let string  = "()(){}()({{[}})[]";
